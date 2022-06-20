@@ -18,7 +18,16 @@ spring:
         queryPassing: true 
     loadbalancer: 
       ribbon.enabled: false 
-
+  datasource:
+    url: jdbc:postgresql://localhost:5438/postgres
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: create
+    #database-platform: org.hibernate.dialect.PostgreSQL82Dialect
+    show-sql: true
+   
 server: 
   port: ${PORT:${SERVER_PORT:0}}
 #  port: 8080
