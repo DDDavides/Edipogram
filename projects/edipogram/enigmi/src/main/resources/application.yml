@@ -19,7 +19,7 @@ spring:
     loadbalancer: 
       ribbon.enabled: false 
   datasource:
-    url: jdbc:postgresql://localhost:5438/postgres
+    url: jdbc:postgresql://localhost:5438/enigmidb
     username: postgres
     password: postgres
   jpa:
