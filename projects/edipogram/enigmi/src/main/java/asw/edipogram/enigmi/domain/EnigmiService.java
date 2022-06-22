@@ -18,7 +18,7 @@ public class EnigmiService {
  	public Enigma createEnigma(String autore, String tipo, String tipoSpecifico, String titolo, String[] testo, String[] soluzione) {
 		Enigma enigma = new Enigma(autore, tipo, tipoSpecifico, titolo, testo, soluzione); 
 		enigma = enigmiRepository.save(enigma);
-		DomainEvent event = new EnigmaCreatedEvent(autore, tipo, tipoSpecifico, titolo, testo, soluzione);
+		DomainEvent event = new EnigmaCreatedEvent(autore, tipo, tipoSpecifico, titolo, testo);
 		enigmiMessagePublisher.publish(event);
 		return enigma;
 	}
