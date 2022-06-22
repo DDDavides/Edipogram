@@ -1,5 +1,6 @@
 package asw.edipogram.enigmi.kafka;
 
+import asw.edipogram.common.api.event.DomainEvent;
 import asw.edipogram.enigmi.domain.EnigmiMessagePublisher;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,11 @@ public class EnigmiMessagePublisherImpl implements EnigmiMessagePublisher{
     private String channel;
 
 	@Autowired
-	private KafkaTemplate<String, String> template;
+	private KafkaTemplate<String, DomainEvent> template;
 
 	@Override
-	public void publish(String message) {
-		template.send(channel, message);
+	public void publish(DomainEvent event) {
+		template.send(channel, event);
 	}
 
 }
