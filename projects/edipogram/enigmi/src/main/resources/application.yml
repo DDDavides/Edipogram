@@ -42,7 +42,7 @@ asw:
     enigmi:
       channel:
         out: enigmi-service-event-channel
-      group-id: simple-producer
+      group-id: enigmi-producer
 
    
 server: 
