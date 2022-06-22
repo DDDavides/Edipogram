@@ -27,6 +27,8 @@ spring:
       ddl-auto: create
     #database-platform: org.hibernate.dialect.PostgreSQL82Dialect
     show-sql: true
+  kafka:
+
    
 server: 
   port: ${PORT:${SERVER_PORT:0}}
