@@ -28,4 +28,6 @@ dependencies {
 	annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
 	implementation "org.springdoc:springdoc-openapi-ui:${springdocVersion}"
+	
+	implementation 'org.springframework.kafka:spring-kafka'
 }

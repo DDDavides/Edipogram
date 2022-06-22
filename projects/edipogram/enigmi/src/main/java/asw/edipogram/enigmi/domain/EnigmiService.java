@@ -14,10 +14,15 @@ public class EnigmiService {
 
 	@Autowired
 	private EnigmiRepository enigmiRepository;
+	@Autowired
+	private EnigmiMessagePublisher enigmiMessagePublisher;
 
  	public Enigma createEnigma(String autore, String tipo, String tipoSpecifico, String titolo, String[] testo, String[] soluzione) {
 		Enigma enigma = new Enigma(autore, tipo, tipoSpecifico, titolo, testo, soluzione); 
 		enigma = enigmiRepository.save(enigma);
+		//TODO: creare l'evento e inizializzarlo
+		String event = "stringa";
+		enigmiMessagePublisher.publish(event);
 		return enigma;
 	}
 
