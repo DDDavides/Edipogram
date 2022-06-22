@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @AllArgsConstructor
-public class EnigmiCreatedEvent implements DomainEvent {
+public class EnigmaCreatedEvent implements DomainEvent {
 
     private String autore;
     private String tipo;

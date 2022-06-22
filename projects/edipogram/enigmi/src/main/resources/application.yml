@@ -27,8 +27,6 @@ spring:
       ddl-auto: create
     #database-platform: org.hibernate.dialect.PostgreSQL82Dialect
     show-sql: true
-  main:
-    web-application-type: NONE
   kafka:
     bootstrap-servers: ${DOCKER_HOST_IP:10.11.1.121}:9092
     #KAFKA PRODUCER
@@ -41,7 +39,7 @@ asw:
   edipogram:
     enigmi:
       channel:
-        out: enigmi-service-event-channel
+        out: enigma-created-service-event-channel
       group-id: enigmi-producer
 
    
