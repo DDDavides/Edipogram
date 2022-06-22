@@ -22,11 +22,18 @@ spring:
     url: jdbc:postgresql://localhost:5440/enigmiseguitidb
     username: postgres
     password: postgres
+  main:
+    web-application-type: none
   jpa:
     hibernate:
       ddl-auto: create
       #database-platform: org.hibernate.dialect.PostgreSQL82Dialect
     show-sql: true
+  kafka:
+    bootstrap-servers: ${DOCKER_HOST_IP:10.11.1.121}:9092
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
 
 server: 
   port: ${PORT:${SERVER_PORT:0}}
@@ -36,3 +43,11 @@ server:
 #spring.jpa.show-sql: true
 # disable OSIV
 spring.jpa.open-in-view: false
+
+asw:
+  edipogram:
+    enigmiseguiti:
+      channel:
+        in-enigma-created: enigma-created-service-event-channel
+        in-connessione-created: connessione-created-service-event-channel
+      groupId: enigmiseguiti
