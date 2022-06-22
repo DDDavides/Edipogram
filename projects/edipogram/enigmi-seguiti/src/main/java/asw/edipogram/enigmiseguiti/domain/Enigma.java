@@ -1,12 +1,19 @@
 package asw.edipogram.enigmiseguiti.domain;
 
-import lombok.*; 
+import lombok.*;
 
-/* Enigma (in formato breve, senza soluzione). */ 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+/* Enigma (in formato breve, senza soluzione). */
+@Entity
 @Data @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Enigma implements Comparable<Enigma> {
 
+	@Id
+	@GeneratedValue
 	@EqualsAndHashCode.Include
 	private Long id; 
 	private String autore; 
