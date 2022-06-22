@@ -6,6 +6,7 @@ buildscript {
 		swaggerVersion = '3.0.0'
 		lombokVersion = '1.18.22'
 		springdocVersion = '1.6.6'
+		kafkaVersion = '2.8.5'
 	}
 	repositories {
 		mavenCentral()

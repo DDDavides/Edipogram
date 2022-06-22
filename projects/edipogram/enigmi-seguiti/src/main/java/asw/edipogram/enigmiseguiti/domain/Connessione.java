@@ -11,7 +11,6 @@ import javax.persistence.Id;
 public class Connessione {
 
 	@Id
-	@GeneratedValue
 	private Long id; 
 	private String utente; 
 	private String tipo; 

@@ -4,6 +4,6 @@ include 'enigmi-seguiti'
 include 'api-gateway'
 include 'api-event'
 include 'enigmi-api-event'
+include 'connessioni-api-event'
 
 rootProject.name = 'edipogram'
-
