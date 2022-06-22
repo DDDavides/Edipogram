@@ -1,19 +1,20 @@
 #!/bin/bash
 
-echo Halting Consul  
-
+echo Halting Consul
 docker stop asw-consul 
 docker rm asw-consul 
 
 echo Halting db-enigmi
-
 docker stop db-enigmi
 docker rm db-enigmi
 
 echo Halting db-connessioni
-
 docker stop db-connessioni
 docker rm db-connessioni
+
+echo Halting db-enigmiseguiti
+docker stop db-enigmiseguiti
+docker rm db-enigmiseguiti
 
 echo Halting Kafka, Zookeeper and channels
 docker compose down
