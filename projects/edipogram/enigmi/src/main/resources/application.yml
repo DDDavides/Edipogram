@@ -31,6 +31,7 @@ spring:
     web-application-type: NONE
   kafka:
     bootstrap-servers: ${DOCKER_HOST_IP:10.11.1.121}:9092
+
     #KAFKA PRODUCER
     producer.key-serializer: org.apache.kafka.common.serialization.StringSerializer
     producer.value-serializer: org.springframework.kafka.support.serializer.JsonSerializer

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ConnessioniMessagePublicherImpl implements ConnessioniMessagePublisher {
 
-    //@Value()
+    @Value("asw.edipogram.connessioni.channel.out")
     private String channel;
 
     @Autowired
