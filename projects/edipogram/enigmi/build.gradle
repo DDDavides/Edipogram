@@ -10,6 +10,8 @@ dependencyManagement {
 }
 
 dependencies {
+	implementation project(":api-event")
+	implementation project(":enigmi-api-event")
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.cloud:spring-cloud-starter'
 	implementation 'org.springframework.cloud:spring-cloud-starter-consul-discovery'
