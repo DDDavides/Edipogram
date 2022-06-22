@@ -10,6 +10,7 @@ dependencyManagement {
 }
 
 dependencies {
+	implementation project (':api-event')
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.cloud:spring-cloud-starter'
 	implementation 'org.springframework.cloud:spring-cloud-starter-consul-discovery'
@@ -28,4 +29,5 @@ dependencies {
 	annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
 	implementation "org.springdoc:springdoc-openapi-ui:${springdocVersion}"
+	implementation "org.springframework.kafka:spring-kafka:${kafkaVersion}"
 }

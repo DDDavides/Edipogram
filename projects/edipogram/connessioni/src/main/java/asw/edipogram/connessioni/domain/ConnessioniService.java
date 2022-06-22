@@ -4,13 +4,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import java.util.logging.Logger;
 
-import java.util.logging.Logger; 
 import java.util.*; 
 
 @Service
 public class ConnessioniService {
-
 	@Autowired
 	private ConnessioniRepository connessioniRepository;
 
