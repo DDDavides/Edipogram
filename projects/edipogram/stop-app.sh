@@ -16,5 +16,5 @@ docker stop db-connessioni
 docker rm db-connessioni
 
 echo Halting Kafka, Zookeeper and channels
-docker-compose down
-docker-compose rm -f
+docker compose down
+docker compose rm -f
