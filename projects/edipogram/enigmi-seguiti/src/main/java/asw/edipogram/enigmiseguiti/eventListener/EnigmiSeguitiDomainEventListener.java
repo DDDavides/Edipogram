@@ -17,7 +17,7 @@ public class EnigmiSeguitiDomainEventListener {
     private String channel2;
     @Value("${asw.edipogram.enigmiseguiti.groupId}")
     private String groupId;*/
-    
+
     @Autowired
     private EnigmiSeguitiEventAdapter enigmiSeguitiEventAdapter;
 

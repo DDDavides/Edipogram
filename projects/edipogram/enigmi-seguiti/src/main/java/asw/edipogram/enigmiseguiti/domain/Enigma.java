@@ -20,16 +20,6 @@ public class Enigma implements Comparable<Enigma> {
 	private String titolo;
 	private String[] testo;
 
-	public Enigma(Long id, String autore, String tipo, String tipoSpecifico, String titolo, String[] testo) {
-		this();
-		this.id = id;
-		this.autore = autore;
-		this.tipo = tipo;
-		this.tipoSpecifico = tipoSpecifico;
-		this.titolo = titolo;
-		this.testo = testo;
-	}
-
 	@Override
 	public int compareTo(Enigma other) {
 		return this.id.compareTo(other.id); 
