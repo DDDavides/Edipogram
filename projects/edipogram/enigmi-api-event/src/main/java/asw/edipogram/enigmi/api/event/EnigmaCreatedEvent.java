@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class EnigmaCreatedEvent implements DomainEvent {
 
+    private Long id;
     private String autore;
     private String tipo;
     private String tipoSpecifico;
