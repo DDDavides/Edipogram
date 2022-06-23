@@ -1,11 +1,49 @@
 version: '3'
 services:
+  # TODO: prvare se funziona
+  # consul:
+  #   image: consul:latest
+  #   ports:
+  #     - "8500:8500"
+  #   hostname: localhost
+
+  # db-enigmi:
+  #   image:
+  #     postgres:latest
+  #   environment:
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=postgres
+  #     - POSTGRES_DB=enigmidb
+  #   ports:
+  #     - "5438:5432"
+
+  # db-connessioni:
+  #   image:
+  #     postgres:latest
+  #   environment:
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=postgres
+  #     - POSTGRES_DB=connessionidb
+  #   ports:
+  #     - "5439:5432"
+
+  # db-enigmiseguiti:
+  #   image:
+  #     postgres:latest
+  #   environment:
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=postgres
+  #     - POSTGRES_DB=enigmiseguitidb
+  #   ports:
+  #     - "5440:5432"
+
   zookeeper:
     image: bitnami/zookeeper:latest
     ports:
       - "2181:2181"
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
+
   kafka:
     image: bitnami/kafka:latest
     depends_on:
@@ -22,3 +60,4 @@ services:
 #      - KAFKA_CREATE_TOPICS:"enigma-created-service-event-channel:4:1,connessione-created-service-event-channel:4:1"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+

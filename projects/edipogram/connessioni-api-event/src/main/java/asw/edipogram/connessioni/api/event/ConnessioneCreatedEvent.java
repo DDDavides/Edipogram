@@ -1,6 +1,5 @@
 package asw.edipogram.connessioni.api.event;
 
-
 import asw.edipogram.common.api.event.DomainEvent;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +12,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ConnessioneCreatedEvent implements DomainEvent {
     
-    private Long id;
     private String utente;
     private String tipo;
 }

@@ -22,7 +22,7 @@ public class ConnessioniService {
 		Connessione connessione = new Connessione(utente, tipo);
 		connessione = connessioniRepository.save(connessione);
 
-		DomainEvent event = new ConnessioneCreatedEvent(connessione.getId(), connessione.getUtente(), connessione.getTipo());
+		DomainEvent event = new ConnessioneCreatedEvent(utente, tipo);
 		connessioniMessagePublicher.publish(event);
 
 		return connessione;
