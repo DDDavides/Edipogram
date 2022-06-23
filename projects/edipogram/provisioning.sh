@@ -13,4 +13,3 @@ echo Starting db for enigmiseguiti in a Docker Container
 docker run --name db-enigmiseguiti -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=enigmiseguitidb -e POSTGRES_USER=postgres -p 5440:5432 -d postgres
 
 #TODO: eseguire TUTTI i container tramite docker compose
-docker compose up -d

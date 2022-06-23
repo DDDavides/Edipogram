@@ -1,8 +1,8 @@
 #!/bin/bash
 
-./provisioning.sh
-
 echo Creating Kafka topics for the enigmi e connessioni service...
+
+docker compose up -d
 
 KAFKA_DOCKER=$(docker ps | grep kafka | grep -v zookeeper | awk '{print $1}')
 

@@ -30,7 +30,7 @@ spring:
       #database-platform: org.hibernate.dialect.PostgreSQL82Dialect
     show-sql: true
   kafka:
-    bootstrap-servers: ${DOCKER_HOST_IP:10.11.1.121}:9092
+    bootstrap-servers: ${DOCKER_HOST_IP:localhost}:9092
     consumer:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
