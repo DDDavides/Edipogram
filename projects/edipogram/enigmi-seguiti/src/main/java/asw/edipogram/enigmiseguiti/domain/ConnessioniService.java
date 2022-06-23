@@ -4,6 +4,6 @@ import java.util.*;
 
 public interface ConnessioniService {
 
-	public Collection<Connessione> getConnessioniByUtente(String utente); 
+	public Collection<Connessione> getConnessioniByUtente(String utente);
 	
 }
