@@ -26,8 +26,8 @@ public class EnigmiSeguitiService {
 				.map(c -> c.getTipo())
 				.collect(Collectors.toSet()); 
 		if (tipiSeguiti.size()>0) {
-			//Collection<Enigma> enigmi = enigmaRepository.getEnigmiByTipi(tipiSeguiti);
-			//enigmiSeguiti.addAll(enigmi);
+			Collection<Enigma> enigmi = enigmaRepository.getEnigmiByTipi(tipiSeguiti);
+			enigmiSeguiti.addAll(enigmi);
 		}
 		return enigmiSeguiti; 
 	}

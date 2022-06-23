@@ -7,5 +7,5 @@ import java.util.Collection;
 
 public interface EnigmaRepository extends CrudRepository<Enigma, Long> {
 
-    //public Collection<Enigma> getEnigmiByTipi(Collection<String> tipi);
+    public Collection<Enigma> getEnigmiByTipi(Collection<String> tipi);
 }
