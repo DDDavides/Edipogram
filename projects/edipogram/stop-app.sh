@@ -1,21 +1,13 @@
 #!/bin/bash
 
-echo Halting Consul
-docker stop asw-consul 
-docker rm asw-consul 
+# echo "Sei sicuro di voler bloccare l'app? Questo fermera' l'infrastruttura [y/N]"
+# read $resp
 
-echo Halting db-enigmi
-docker stop db-enigmi
-docker rm db-enigmi
+# if [[ $resp -eq 'y' ] || [ $resp -eq 'Y' ]]; then
+# fi
 
-echo Halting db-connessioni
-docker stop db-connessioni
-docker rm db-connessioni
+./kill-java-processes.sh
 
-echo Halting db-enigmiseguiti
-docker stop db-enigmiseguiti
-docker rm db-enigmiseguiti
-
-echo Halting Kafka, Zookeeper and channels
+echo Halting edipogram Network
 docker compose down
 docker compose rm -f
