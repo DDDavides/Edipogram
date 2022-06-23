@@ -11,7 +11,8 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @AllArgsConstructor
 public class ConnessioneCreatedEvent implements DomainEvent {
-    
+
+    private Long id;
     private String utente;
     private String tipo;
 }
