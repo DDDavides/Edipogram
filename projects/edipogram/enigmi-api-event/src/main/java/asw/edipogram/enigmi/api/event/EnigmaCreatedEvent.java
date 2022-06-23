@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -17,5 +19,5 @@ public class EnigmaCreatedEvent implements DomainEvent {
     private String tipo;
     private String tipoSpecifico;
     private String titolo;
-    private String[] testo;
+    private List<String> testo;
 }

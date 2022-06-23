@@ -12,5 +12,5 @@ docker exec -it $KAFKA_DOCKER kafka-topics.sh --bootstrap-server localhost:9092 
 echo Creating topic for connessioni
 
 docker exec -it $KAFKA_DOCKER kafka-topics.sh --bootstrap-server localhost:9092 \
-  --create --topic connessione-created-service-event-channel --replication-factor 1 --partitions 4 >> /dev/null
+  --create --topic connessione-created-service-event-channel --replication-factor 1 --partitions 4
 

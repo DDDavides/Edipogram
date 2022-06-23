@@ -6,6 +6,9 @@ import asw.edipogram.enigmi.api.event.EnigmaCreatedEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
+import java.util.List;
+
 @Component
 public class EnigmiSeguitiEventAdapter {
 
@@ -30,7 +33,7 @@ public class EnigmiSeguitiEventAdapter {
     }
 
     public void enigmaCreated(EnigmaCreatedEvent event) {
-        Enigma enigma = new Enigma(event.getId(), event.getAutore(), event.getTipo(), event.getTipoSpecifico(), event.getTitolo(), event.getTesto());
+        Enigma enigma = new Enigma(event.getId(), event.getAutore(), event.getTipo(), event.getTipoSpecifico(), event.getTitolo(), (String[]) event.getTesto().toArray());
         enigmiSeguitiService.addEnigma(enigma);
     }
 }
