@@ -25,12 +25,12 @@ public class EnigmiSeguitiEventAdapter {
     }
 
     public void connessioneCreated(ConnessioneCreatedEvent cce) {
-        Connessione connessione = new Connessione(cce.getUtente(), cce.getTipo());
+        Connessione connessione = new Connessione(cce.getId(), cce.getUtente(), cce.getTipo());
         enigmiSeguitiService.addConnessione(connessione);
     }
 
     public void enigmaCreated(EnigmaCreatedEvent event) {
-        Enigma enigma = new Enigma(event.getAutore(), event.getTipo(), event.getTipoSpecifico(), event.getTitolo(), event.getTesto());
+        Enigma enigma = new Enigma(event.getId(), event.getAutore(), event.getTipo(), event.getTipoSpecifico(), event.getTitolo(), event.getTesto());
         enigmiSeguitiService.addEnigma(enigma);
     }
 }

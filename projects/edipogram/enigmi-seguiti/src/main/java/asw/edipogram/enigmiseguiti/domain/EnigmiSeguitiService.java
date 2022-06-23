@@ -33,9 +33,7 @@ public class EnigmiSeguitiService {
 	}
 
 	//TODO: aggiungere logica applicativa per quando riceve EnigmaCreatedEvent
-	public Enigma addEnigma(Enigma enigma) {
-		return enigmaRepository.save(enigma);
-	}
+	public Enigma addEnigma(Enigma enigma) { return enigmaRepository.save(enigma); }
 
 	//TODO: aggiungere logica applicativa per ConnessioneCreatedEvent
 	public Connessione addConnessione(Connessione connessione) {

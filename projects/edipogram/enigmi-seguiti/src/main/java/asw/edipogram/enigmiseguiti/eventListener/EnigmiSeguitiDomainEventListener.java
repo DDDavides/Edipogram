@@ -11,12 +11,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class EnigmiSeguitiDomainEventListener {
 
-    @Value("${asw.edipogram.enigmiseguiti.channel.in-enigma-created}")
+    /*@Value("${asw.edipogram.enigmiseguiti.channel.in-enigma-created}")
     private String channel1;
     @Value("${asw.edipogram.enigmiseguiti.channel.in-connessione-created}")
     private String channel2;
     @Value("${asw.edipogram.enigmiseguiti.groupId}")
-    private String groupId;
+    private String groupId;*/
+    
     @Autowired
     private EnigmiSeguitiEventAdapter enigmiSeguitiEventAdapter;
 

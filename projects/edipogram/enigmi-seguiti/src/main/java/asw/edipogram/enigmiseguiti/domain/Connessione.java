@@ -11,13 +11,13 @@ import javax.persistence.Id;
 public class Connessione {
 
 	@Id
-	@GeneratedValue
 	private Long id;
 	private String utente;
 	private String tipo;
 
-	public Connessione(String utente, String tipo) {
+	public Connessione(Long id, String utente, String tipo) {
 		this();
+		this.id = id;
 		this.utente = utente;
 		this.tipo = tipo;
 	}
