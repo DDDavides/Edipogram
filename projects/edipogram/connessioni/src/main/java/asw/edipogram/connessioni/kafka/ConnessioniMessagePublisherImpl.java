@@ -1,6 +1,5 @@
 package asw.edipogram.connessioni.kafka;
 
-import asw.edipogram.connessioni.domain.Connessione;
 import asw.edipogram.connessioni.domain.ConnessioniMessagePublisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,9 +8,9 @@ import asw.edipogram.common.api.event.DomainEvent;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ConnessioniMessagePublicherImpl implements ConnessioniMessagePublisher {
+public class ConnessioniMessagePublisherImpl implements ConnessioniMessagePublisher {
 
-    @Value("asw.edipogram.connessioni.channel.out")
+    @Value("${asw.edipogram.connessioni.channel.out}")
     private String channel;
 
     @Autowired

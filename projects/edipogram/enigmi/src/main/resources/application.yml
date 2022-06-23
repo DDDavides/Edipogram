@@ -52,3 +52,5 @@ server:
 #spring.jpa.show-sql: true
 # disable OSIV
 spring.jpa.open-in-view: false
+
+spring.kafka.consumer.properties.spring.json.trusted.packages: asw.edipogram.*

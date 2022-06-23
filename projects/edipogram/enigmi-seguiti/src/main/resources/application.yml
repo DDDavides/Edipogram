@@ -1,7 +1,7 @@
 # application.yml 
 --- 
-spring: 
-  application: 
+spring:
+  application:
     name: enigmi-seguiti
   cloud:
     consul:
@@ -22,8 +22,8 @@ spring:
     url: jdbc:postgresql://localhost:5440/enigmiseguitidb
     username: postgres
     password: postgres
-  main:
-    web-application-type: none
+  #main:
+    #web-application-type: none
   jpa:
     hibernate:
       ddl-auto: create
@@ -37,9 +37,8 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       #group-id: ${asw.edipogram.enigmiseguiti.groupId}
       #auto-offset-reset: earliest
-      properties.spring.json.trusted.packages: *
-
-server: 
+      #properties.spring.json.trusted.packages: asw.edipogram.enigmiseguiti.*
+server:
   port: ${PORT:${SERVER_PORT:0}}
 #  port: 8080
 
@@ -55,3 +54,5 @@ asw:
         in-enigma-created: enigma-created-service-event-channel
         in-connessione-created: connessione-created-service-event-channel
       groupId: enigmiseguiti
+
+spring.kafka.consumer.properties.spring.json.trusted.packages: asw.edipogram.*

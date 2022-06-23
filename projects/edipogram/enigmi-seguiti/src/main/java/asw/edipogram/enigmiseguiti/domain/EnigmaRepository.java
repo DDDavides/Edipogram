@@ -2,10 +2,12 @@ package asw.edipogram.enigmiseguiti.domain;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.Collection;
+import java.util.List;
 
 public interface EnigmaRepository extends CrudRepository<Enigma, Long> {
-    @Query(value = "SELECT e FROM enigma e WHERE e.tipo IN ?;")
-    public Collection<Enigma> getEnigmiByTipi(Collection<String> tipi);
+    @Query(value = "SELECT e FROM Enigma e WHERE e.tipo IN :tps")
+    public Collection<Enigma> getEnigmiByTipi(@Param("tps") List<String> tipi);
 }

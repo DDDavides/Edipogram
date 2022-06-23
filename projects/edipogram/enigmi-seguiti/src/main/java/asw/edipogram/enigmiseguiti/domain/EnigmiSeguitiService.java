@@ -23,6 +23,7 @@ public class EnigmiSeguitiService {
 		Collection<Enigma> enigmiSeguiti = new TreeSet<>();
 		logger.info("REPOSITORY method: getting connessioni by utente");
 		Collection<Connessione> connessioni = connessioneRepository.getConnessioniByUtente(utente);
+		logger.info("Connessioni utente: " + connessioni);
 		Collection<String> tipiSeguiti = 
 			connessioni
 				.stream()
@@ -32,20 +33,19 @@ public class EnigmiSeguitiService {
 		if (tipiSeguiti.size()>0) {
 			logger.info("TipiSeguiti dall'utente > 0");
 			logger.info("REPOSITORY method: getting enigmi by tipi");
-			Collection<Enigma> enigmi = enigmaRepository.getEnigmiByTipi(tipiSeguiti);
+			//TODO: controlla se migliorare list<String> e verifica funzionamento
+			Collection<Enigma> enigmi = enigmaRepository.getEnigmiByTipi(new ArrayList<String>(tipiSeguiti));
 			logger.info("REPOSITORY method return: \n" + enigmi);
 			enigmiSeguiti.addAll(enigmi);
 		}
 		return enigmiSeguiti; 
 	}
 
-	//TODO: aggiungere logica applicativa per quando riceve EnigmaCreatedEvent
-	public Enigma addEnigma(Enigma enigma) { 
-		return enigmaRepository.save(enigma); 
+	public Enigma addEnigma(Enigma enigma) {
+		return enigmaRepository.save(enigma);
 	}
 
-	//TODO: aggiungere logica applicativa per ConnessioneCreatedEvent
-	public Connessione addConnessione(Connessione connessione) { 
+	public Connessione addConnessione(Connessione connessione) {
 		return connessioneRepository.save(connessione); 
 	}
 
