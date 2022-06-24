@@ -1,13 +1,19 @@
 #!/bin/bash
 
-# echo "Sei sicuro di voler bloccare l'app? Questo fermera' l'infrastruttura [y/N]"
-# read $resp
+if [ -z "$1" ]; then
+	read -p "Sei sicuro di voler bloccare l'app, questo fermera' l'infrastruttura e tutti i processi java attivi. [y/N]: " \
+	resp
+else
+	resp="$1"
+fi
 
-# if [[ $resp -eq 'y' ] || [ $resp -eq 'Y' ]]; then
-# fi
+if [ "$resp" == 'y' ] || [ "$resp" == 'Y' ]; then
+	./kill-java-processes.sh
 
-./kill-java-processes.sh
+	echo Halting edipogram Network
+	docker compose down
+	docker compose rm -f
 
-echo Halting edipogram Network
-docker compose down
-docker compose rm -f
+fi
+
+
