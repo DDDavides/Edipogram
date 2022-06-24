@@ -53,6 +53,7 @@ L'applicazione *Edipogram* è composta dai seguenti microservizi:
   * espone il servizio *enigmi-seguiti* sul path `/enigmi-seguiti` - ad esempio, `GET /enigmi-seguiti/enigmiseguiti/{utente}`
 
 
+<!-- TODO: Aggiungere/Modificare le informazioni degli script -->
 ## Esecuzione 
 
 Per eseguire questo progetto: 
