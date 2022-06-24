@@ -10,4 +10,7 @@ import java.util.List;
 public interface EnigmaRepository extends CrudRepository<Enigma, Long> {
     @Query(value = "SELECT e FROM Enigma e WHERE e.tipo IN :tps")
     public Collection<Enigma> getEnigmiByTipi(@Param("tps") List<String> tipi);
+
+    public Collection<Enigma> getEnigmaByTipo(String tipo);
+
 }

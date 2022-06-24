@@ -18,17 +18,19 @@ public class EnigmiSeguitiService {
 	@Autowired 
 	private EnigmaRepository enigmaRepository;
 
-	/* Trova gli enigmi (in formato breve) degli utenti seguiti da utente. */ 
-	public Collection<Enigma> getEnigmiSeguiti(String utente) {
+	@Autowired
+	private EnigmiSeguitiRepository enigmiSeguitiRepository;
+
+	/*public Collection<Enigma> getEnigmiSeguiti(String utente) {
 		Collection<Enigma> enigmiSeguiti = new TreeSet<>();
 		logger.info("REPOSITORY method: getting connessioni by utente");
 		Collection<Connessione> connessioni = connessioneRepository.getConnessioniByUtente(utente);
 		logger.info("Connessioni utente: " + connessioni);
-		Collection<String> tipiSeguiti = 
-			connessioni
-				.stream()
-				.map(c -> c.getTipo())
-				.collect(Collectors.toSet());
+		Collection<String> tipiSeguiti =
+				connessioni
+						.stream()
+						.map(c -> c.getTipo())
+						.collect(Collectors.toSet());
 		logger.info("REPOSITORY method return: \n" + tipiSeguiti);
 		if (tipiSeguiti.size()>0) {
 			logger.info("TipiSeguiti dall'utente > 0");
@@ -38,7 +40,16 @@ public class EnigmiSeguitiService {
 			logger.info("REPOSITORY method return: \n" + enigmi);
 			enigmiSeguiti.addAll(enigmi);
 		}
-		return enigmiSeguiti; 
+		return enigmiSeguiti;
+	}*/
+
+	/* Trova gli enigmi (in formato breve) degli utenti seguiti da utente. */ 
+	public Collection<EnigmiSeguiti> getEnigmiSeguiti(String utente) {
+		Collection<EnigmiSeguiti> enigmiSeguiti = new TreeSet<>();
+		logger.info("REPOSITORY method: getting connessioni by utente");
+		enigmiSeguiti = enigmiSeguitiRepository.getEnigmiSeguitiByEnigmiSeguitiIdUtente(utente);
+		logger.info("REPOSITORY method return: \n" + enigmiSeguiti);
+		return enigmiSeguiti;
 	}
 
 	public Enigma addEnigma(Enigma enigma) {
@@ -49,4 +60,27 @@ public class EnigmiSeguitiService {
 		return connessioneRepository.save(connessione); 
 	}
 
+	public Collection<EnigmiSeguiti> addEnigmaSeguito(Connessione connessione) {
+		Collection<Enigma> enigmi = enigmaRepository.getEnigmaByTipo(connessione.getTipo());
+		Collection<EnigmiSeguiti> enigmiSeguiti = new LinkedList<EnigmiSeguiti>();
+		for (Enigma enigma: enigmi) {
+			EnigmiSeguiti es = enigmiSeguitiRepository.save(new EnigmiSeguiti(connessione.getUtente(), enigma.getId(),
+					enigma.getAutore(), enigma.getTipo(),  enigma.getTipoSpecifico(), enigma.getTitolo(),
+					enigma.getTesto()));
+			enigmiSeguiti.add(es);
+		}
+		return enigmiSeguiti;
+	}
+
+	public Collection<EnigmiSeguiti> addEnigmaSeguito(Enigma enigma) {
+		Collection<Connessione> connessioni = connessioneRepository.getConnessioneByTipo(enigma.getTipo());
+		Collection<EnigmiSeguiti> enigmiSeguiti = new LinkedList<EnigmiSeguiti>();
+		for (Connessione connessione : connessioni){
+			EnigmiSeguiti es = enigmiSeguitiRepository.save(new EnigmiSeguiti(connessione.getUtente(), enigma.getId(),
+					enigma.getAutore(), enigma.getTipo(), enigma.getTipoSpecifico(),
+					enigma.getTitolo(), enigma.getTesto()));
+			enigmiSeguiti.add(es);
+		}
+		return enigmiSeguiti;
+	}
 }

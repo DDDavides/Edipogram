@@ -7,4 +7,6 @@ import java.util.Collection;
 public interface ConnessioneRepository extends CrudRepository<Connessione, Long> {
 
     public Collection<Connessione> getConnessioniByUtente(String utente);
+
+    public Collection<Connessione> getConnessioneByTipo(String tipo);
 }
