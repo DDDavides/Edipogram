@@ -1,15 +1,12 @@
 package asw.edipogram.enigmiseguiti.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Data
+@Data @ToString
 @NoArgsConstructor @AllArgsConstructor
 @IdClass(EnigmiSeguiti.EnigmiSeguitiId.class)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -26,10 +23,14 @@ public class EnigmiSeguiti {
     private String[] testoEnigma;
 
     @Data
-    public class EnigmiSeguitiId implements Serializable {
+    @NoArgsConstructor @AllArgsConstructor
+    public static class EnigmiSeguitiId implements Serializable {
         @Column(nullable = false)
         private String utente;
         @Column(nullable = false)
         private Long idEnigma;
+
+
+
     }
 }

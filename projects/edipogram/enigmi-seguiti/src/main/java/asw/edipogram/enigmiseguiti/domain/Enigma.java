@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 /* Enigma (in formato breve, senza soluzione). */
 @Entity
-@Data @NoArgsConstructor
+@Data @NoArgsConstructor @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @AllArgsConstructor
 public class Enigma implements Comparable<Enigma> {

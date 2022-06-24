@@ -6,8 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-@Data @NoArgsConstructor
-@AllArgsConstructor
+@Data @ToString
+@NoArgsConstructor @AllArgsConstructor
 public class Connessione {
 
 	@Id
