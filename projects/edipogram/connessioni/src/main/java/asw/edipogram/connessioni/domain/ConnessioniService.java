@@ -13,14 +13,14 @@ public class ConnessioniService {
 	private ConnessioniRepository connessioniRepository;
 
 	@Autowired
-	private ConnessioniMessagePublisher connessioniMessagePublisher;
+	private ConnessioniEventPublisher connessioniEventPublisher;
 
  	public Connessione createConnessione(String utente, String tipo) {
 		Connessione connessione = new Connessione(utente, tipo);
 		connessione = connessioniRepository.save(connessione);
 
 		DomainEvent event = new ConnessioneCreatedEvent(connessione.getId(), connessione.getUtente(), connessione.getTipo());
-		connessioniMessagePublisher.publish(event);
+		connessioniEventPublisher.publish(event);
 
 		return connessione;
 	}
