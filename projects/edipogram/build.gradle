@@ -3,9 +3,10 @@ buildscript {
 		springBootVersion = '2.6.7'
 		springDependencyManagementVersion = '1.0.11.RELEASE'
 		springCloudVersion = '2021.0.2'
-//		swaggerVersion = '3.0.0'
+		swaggerVersion = '3.0.0'
 		lombokVersion = '1.18.22'
 		springdocVersion = '1.6.6'
+		kafkaVersion = '2.8.5'
 	}
 	repositories {
 		mavenCentral()
@@ -20,7 +21,7 @@ subprojects {
 
 	apply plugin: 'java'
 
-	group = 'asw.sentence'
+	group = 'asw.edipogram'
 	sourceCompatibility = '11'
 
 	repositories {
