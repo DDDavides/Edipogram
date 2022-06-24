@@ -30,12 +30,14 @@ public class EnigmiSeguitiEventAdapter {
         logger.info("Evento connessione: " + cce);
         Connessione connessione = new Connessione(cce.getId(), cce.getUtente(), cce.getTipo());
         enigmiSeguitiService.addConnessione(connessione);
-        enigmiSeguitiService.addEnigmaSeguito(connessione);
+        logger.info("Aggiunta connessione: " + connessione);
+        enigmiSeguitiService.addEnigmiSeguiti(connessione);
+        logger.info("Aggiunto enigma seguito: " + cce);
     }
 
     public void onEventEnigmaCreated(EnigmaCreatedEvent ece) {
         Enigma enigma = new Enigma(ece.getId(), ece.getAutore(), ece.getTipo(), ece.getTipoSpecifico(), ece.getTitolo(), ece.getTesto().toArray(new String[0]));
         enigmiSeguitiService.addEnigma(enigma);
-        enigmiSeguitiService.addEnigmaSeguito(enigma);
+        enigmiSeguitiService.addEnigmiSeguiti(enigma);
     }
 }

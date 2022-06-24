@@ -8,5 +8,5 @@ public interface EnigmiSeguitiRepository extends CrudRepository<EnigmiSeguiti, E
 
     public Collection<EnigmiSeguiti> getEnigmiSeguitiByTipoEnigma(String tipo);
 
-    public Collection<EnigmiSeguiti> getEnigmiSeguitiByEnigmiSeguitiIdUtente(String utente);
+    public Collection<EnigmiSeguiti> getEnigmiSeguitiByUtente(String utente);
 }

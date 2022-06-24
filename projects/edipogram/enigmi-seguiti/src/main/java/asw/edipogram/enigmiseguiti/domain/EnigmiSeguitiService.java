@@ -1,12 +1,10 @@
 package asw.edipogram.enigmiseguiti.domain;
 
-import asw.edipogram.enigmiseguiti.rest.EnigmiSeguitiController;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
 import java.util.logging.Logger;
-import java.util.stream.*;
 
 @Service 
 public class EnigmiSeguitiService {
@@ -47,7 +45,7 @@ public class EnigmiSeguitiService {
 	public Collection<EnigmiSeguiti> getEnigmiSeguiti(String utente) {
 		Collection<EnigmiSeguiti> enigmiSeguiti = new TreeSet<>();
 		logger.info("REPOSITORY method: getting connessioni by utente");
-		enigmiSeguiti = enigmiSeguitiRepository.getEnigmiSeguitiByEnigmiSeguitiIdUtente(utente);
+		enigmiSeguiti = enigmiSeguitiRepository.getEnigmiSeguitiByUtente(utente);
 		logger.info("REPOSITORY method return: \n" + enigmiSeguiti);
 		return enigmiSeguiti;
 	}
@@ -60,19 +58,24 @@ public class EnigmiSeguitiService {
 		return connessioneRepository.save(connessione); 
 	}
 
-	public Collection<EnigmiSeguiti> addEnigmaSeguito(Connessione connessione) {
+	public Collection<EnigmiSeguiti> addEnigmiSeguiti(Connessione connessione) {
 		Collection<Enigma> enigmi = enigmaRepository.getEnigmaByTipo(connessione.getTipo());
+		logger.info("Presi enigmi del tipo: " + enigmi);
 		Collection<EnigmiSeguiti> enigmiSeguiti = new LinkedList<EnigmiSeguiti>();
 		for (Enigma enigma: enigmi) {
-			EnigmiSeguiti es = enigmiSeguitiRepository.save(new EnigmiSeguiti(connessione.getUtente(), enigma.getId(),
+			logger.info("Salvando enigma seguito per: " + enigma);
+		 	EnigmiSeguiti es = new EnigmiSeguiti(connessione.getUtente(), enigma.getId(),
 					enigma.getAutore(), enigma.getTipo(),  enigma.getTipoSpecifico(), enigma.getTitolo(),
-					enigma.getTesto()));
+					enigma.getTesto());
+			logger.info("Salvando enigma seguito per: " + enigma);
+			es = enigmiSeguitiRepository.save(es);
 			enigmiSeguiti.add(es);
+			logger.info("Salvato enigma seguito: " + es);
 		}
 		return enigmiSeguiti;
 	}
 
-	public Collection<EnigmiSeguiti> addEnigmaSeguito(Enigma enigma) {
+	public Collection<EnigmiSeguiti> addEnigmiSeguiti(Enigma enigma) {
 		Collection<Connessione> connessioni = connessioneRepository.getConnessioneByTipo(enigma.getTipo());
 		Collection<EnigmiSeguiti> enigmiSeguiti = new LinkedList<EnigmiSeguiti>();
 		for (Connessione connessione : connessioni){
