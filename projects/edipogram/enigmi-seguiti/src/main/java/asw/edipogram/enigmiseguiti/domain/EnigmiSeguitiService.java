@@ -44,9 +44,7 @@
 		/* Trova gli enigmi (in formato breve) degli utenti seguiti da utente. */
 		public Collection<EnigmiSeguiti> getEnigmiSeguiti(String utente) {
 			Collection<EnigmiSeguiti> enigmiSeguiti = new TreeSet<>();
-			logger.info("[ENIGMI_SEGUITI REPO] method: getting connessioni by utente");
 			enigmiSeguiti = enigmiSeguitiRepository.getEnigmiSeguitiByUtente(utente);
-			logger.info("[ENIGMI_SEGUITI REPO] method return: \n" + enigmiSeguiti);
 			return enigmiSeguiti;
 		}
 

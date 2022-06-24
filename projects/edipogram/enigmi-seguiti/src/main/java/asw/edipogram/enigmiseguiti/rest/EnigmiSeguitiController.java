@@ -36,7 +36,6 @@ public class EnigmiSeguitiController {
 	public Collection<EnigmiSeguiti> getEnigmiSeguiti(@PathVariable String utente) {
 		Instant start = Instant.now();
 		logger.info("REST CALL: getEnigmiSeguiti " + utente);
-		//TODO: cambia in Collection<EnigmiSeguiti>
 		Collection<EnigmiSeguiti> enigmiSeguiti = enigmiSeguitiService.getEnigmiSeguiti(utente);
 		Duration duration = Duration.between(start, Instant.now());
 		logger.info("getEnigmiSeguiti " + utente + " (trovati " + enigmiSeguiti.size() + " enigmi in " + duration.toMillis() + " ms): " + enigmiSeguiti);
