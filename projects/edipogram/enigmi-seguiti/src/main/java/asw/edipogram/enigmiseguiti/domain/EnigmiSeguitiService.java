@@ -48,15 +48,24 @@
 			return enigmiSeguiti;
 		}
 
-		public Enigma addEnigma(Enigma enigma) {
-			return enigmaRepository.save(enigma);
+
+		public Enigma createEnigma(Long id, String autore, String tipo, String tipoSpecifico, String titolo, String[] testo) {
+			Enigma enigma = new Enigma(id, autore, tipo, tipoSpecifico, titolo, testo);
+			logger.info("Aggiungo enigma: " + enigma);
+			enigma = enigmaRepository.save(enigma);
+			this.createEnigmiSeguiti(enigma);
+			return enigma;
 		}
 
-		public Connessione addConnessione(Connessione connessione) {
-			return connessioneRepository.save(connessione);
+		public Connessione createConnessione(Long id, String utente, String tipo) {
+			Connessione connessione = new Connessione(id, utente, tipo);
+			logger.info("Aggiungo connessione: " + connessione);
+		    connessione = connessioneRepository.save(connessione);
+			this.createEnigmiSeguiti(connessione);
+			return connessione;
 		}
 
-		public Collection<EnigmiSeguiti> addEnigmiSeguiti(Connessione connessione) {
+		public Collection<EnigmiSeguiti> createEnigmiSeguiti(Connessione connessione) {
 			String tipoEnigma = connessione.getTipo();
 			Collection<Enigma> enigmi = enigmaRepository.getEnigmaByTipo(tipoEnigma);
 			logger.info("[ENIGMA REPO] Presi enigmi di tipo: " + tipoEnigma);
@@ -76,7 +85,7 @@
 			return enigmiSeguiti;
 		}
 
-		public Collection<EnigmiSeguiti> addEnigmiSeguiti(Enigma enigma) {
+		public Collection<EnigmiSeguiti> createEnigmiSeguiti(Enigma enigma) {
 			String tipoEnigma = enigma.getTipo();
 			Collection<Connessione> connessioni = connessioneRepository.getConnessioneByTipo(tipoEnigma);
 			Collection<EnigmiSeguiti> enigmiSeguiti = new LinkedList<EnigmiSeguiti>();

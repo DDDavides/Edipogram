@@ -1,10 +1,9 @@
 package asw.edipogram.enigmiseguiti.eventListener;
 
 import asw.edipogram.common.api.event.DomainEvent;
-import asw.edipogram.enigmiseguiti.domain.EnigmiSeguitiEventAdapter;
+import asw.edipogram.enigmiseguiti.domain.EnigmiSeguitiEventHandler;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -19,11 +18,11 @@ public class EnigmiSeguitiDomainEventListener {
     private String groupId;*/
 
     @Autowired
-    private EnigmiSeguitiEventAdapter enigmiSeguitiEventAdapter;
+    private EnigmiSeguitiEventHandler enigmiSeguitiEventHandler;
 
     //TODO: gestisci eccezioni
     @KafkaListener(topics = {"${asw.edipogram.enigmiseguiti.channel.in-enigma-created}", "${asw.edipogram.enigmiseguiti.channel.in-connessione-created}"}, groupId = "${asw.edipogram.enigmiseguiti.groupId}")
     public void listen(ConsumerRecord<String, DomainEvent> record) throws Exception{
-        enigmiSeguitiEventAdapter.onEvent(record.value());
+        enigmiSeguitiEventHandler.onEvent(record.value());
     }
 }
