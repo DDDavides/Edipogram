@@ -5,7 +5,7 @@ spring:
     name: enigmi
   cloud:
     consul:
-      host: localhost
+      host: consul
       port: 8500
       discovery: 
         instanceId: ${spring.application.name}-${spring.cloud.client.hostname}-${random.value}
@@ -19,7 +19,7 @@ spring:
     loadbalancer: 
       ribbon.enabled: false 
   datasource:
-    url: jdbc:postgresql://localhost:5438/enigmidb
+    url: jdbc:postgresql://db-enigmi:5438/enigmidb
     username: postgres
     password: postgres
   jpa:
@@ -28,7 +28,7 @@ spring:
     #database-platform: org.hibernate.dialect.PostgreSQL82Dialect
     show-sql: true
   kafka:
-    bootstrap-servers: ${DOCKER_HOST_IP:localhost}:9092
+    bootstrap-servers: ${DOCKER_HOST_IP:kafka}:9092
 
     #KAFKA PRODUCER
     producer.key-serializer: org.apache.kafka.common.serialization.StringSerializer
@@ -45,8 +45,8 @@ asw:
 
    
 server: 
-  port: ${PORT:${SERVER_PORT:0}}
-#  port: 8080
+#  port: ${PORT:${SERVER_PORT:0}}
+  port: 8080
 
 # fa il logging dei comandi sql eseguiti 
 #spring.jpa.show-sql: true

@@ -1,5 +1,8 @@
 	package asw.edipogram.enigmiseguiti.domain;
 
+	import asw.edipogram.enigmiseguiti.domain.repository.ConnessioneRepository;
+	import asw.edipogram.enigmiseguiti.domain.repository.EnigmaRepository;
+	import asw.edipogram.enigmiseguiti.domain.repository.EnigmiSeguitiRepository;
 	import org.springframework.stereotype.Service;
 	import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,6 +22,9 @@
 		@Autowired
 		private EnigmiSeguitiRepository enigmiSeguitiRepository;
 
+		/*
+		** Metodo per ottenere gli enigmi seguiti dopo il primo gruppo di modifiche
+		 */
 		/*public Collection<Enigma> getEnigmiSeguiti(String utente) {
 			Collection<Enigma> enigmiSeguiti = new TreeSet<>();
 			logger.info("REPOSITORY method: getting connessioni by utente");

@@ -5,7 +5,7 @@ spring:
     name: apigateway
   cloud:
     consul:
-      host: localhost
+      host: consul
       port: 8500
       discovery: 
         instanceId: ${spring.application.name}-${spring.cloud.client.hostname}-${random.value}
@@ -24,7 +24,7 @@ spring:
         locator:
           # spring.cloud.gateway.discovery.locator.enabled abilita la definizione implicita di rotte 
           # sulla base dei servizi registrati nel servizio di service discover (default=false) 
-          # enabled: true       
+          # enabled: true
           enabled: false
       routes:
       - id: enigmi_seguiti_route

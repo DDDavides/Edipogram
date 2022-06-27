@@ -1,7 +1,8 @@
 #!/bin/bash
 
+docker compose build
 
-docker compose up -d
+docker compose up -d --scale enigmi-seguiti=2 --scale enigmi=2
 
 KAFKA_DOCKER=$(docker ps | grep kafka | grep -v zookeeper | awk '{print $1}')
 echo Creating Kafka topics for the enigmi e connessioni service...

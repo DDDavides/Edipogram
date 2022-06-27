@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./start-infrastructure.sh && gradle build && ./run-edipogram.sh
+gradle build && ./start-infrastructure.sh #&& ./run-edipogram.sh

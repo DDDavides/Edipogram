@@ -6,6 +6,35 @@ services:
       - "8500:8500"
     hostname: localhost
 
+  api-gateway:
+    build: ./api-gateway
+    image: chila99/edipogram-api-gateway:2022
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "consul"
+
+  enigmi:
+    build: ./enigmi
+    image: chila99/edipogram-enigmi:2022
+    depends_on:
+      - "consul"
+      - "db-enigmi"
+
+  connessioni:
+    build: ./connessioni
+    image: chila99/edipogram-connessioni:2022
+    depends_on:
+      - "consul"
+      - "db-connessioni"
+
+  enigmi-seguiti:
+    build: ./enigmi-seguiti
+    image: chila99/edipogram-enigmi-seguiti:2022
+    depends_on:
+      - "consul"
+      - "db-enigmiseguiti"
+
   db-enigmi:
     image:
       postgres:latest
@@ -45,6 +74,7 @@ services:
 
   kafka:
     image: bitnami/kafka:latest
+    hostname: kafka
     depends_on:
       - "zookeeper"
     ports:

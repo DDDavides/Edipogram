@@ -1,5 +1,6 @@
-package asw.edipogram.enigmiseguiti.domain;
+package asw.edipogram.enigmiseguiti.domain.repository;
 
+import asw.edipogram.enigmiseguiti.domain.EnigmiSeguiti;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Collection;

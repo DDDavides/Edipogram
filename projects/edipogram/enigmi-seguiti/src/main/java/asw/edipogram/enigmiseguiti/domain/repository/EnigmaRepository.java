@@ -1,5 +1,6 @@
-package asw.edipogram.enigmiseguiti.domain;
+package asw.edipogram.enigmiseguiti.domain.repository;
 
+import asw.edipogram.enigmiseguiti.domain.Enigma;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

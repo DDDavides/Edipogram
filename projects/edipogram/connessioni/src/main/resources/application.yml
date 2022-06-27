@@ -19,7 +19,7 @@ spring:
     loadbalancer: 
       ribbon.enabled: false 
   datasource:
-    url: jdbc:postgresql://localhost:5439/connessionidb
+    url: jdbc:postgresql://db-connessioni:5439/connessionidb
     username: postgres
     password: postgres
   jpa:
@@ -28,7 +28,7 @@ spring:
       #database-platform: org.hibernate.dialect.PostgreSQL82Dialec
       show-sql: true
   kafka:
-    bootstrap-servers: ${DOCKER_HOST_IP:localhost}:9092
+    bootstrap-servers: ${DOCKER_HOST_IP:kafka}:9092
     #KAFKA PRODUCER
     producer.key-serializer: org.apache.kafka.common.serialization.StringSerializer
     producer.value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
@@ -42,8 +42,8 @@ asw:
       #group-id: connessioni-producer
 
 server: 
-  port: ${PORT:${SERVER_PORT:0}}
-#  port: 8080
+#  port: ${PORT:${SERVER_PORT:0}}
+  port: 8080
 
 # fa il logging dei comandi sql eseguiti 
 #spring.jpa.show-sql: true
