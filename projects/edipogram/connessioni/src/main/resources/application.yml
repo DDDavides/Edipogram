@@ -5,7 +5,7 @@ spring:
     name: connessioni
   cloud:
     consul:
-      host: localhost
+      host: consul
       port: 8500
       discovery: 
         instanceId: ${spring.application.name}-${spring.cloud.client.hostname}-${random.value}
@@ -19,16 +19,16 @@ spring:
     loadbalancer: 
       ribbon.enabled: false 
   datasource:
-    url: jdbc:postgresql://db-connessioni:5439/connessionidb
+    url: jdbc:postgresql://db-connessioni:5432/connessionidb
     username: postgres
     password: postgres
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
       #database-platform: org.hibernate.dialect.PostgreSQL82Dialec
       show-sql: true
   kafka:
-    bootstrap-servers: ${DOCKER_HOST_IP:kafka}:9092
+    bootstrap-servers: kafka:9092
     #KAFKA PRODUCER
     producer.key-serializer: org.apache.kafka.common.serialization.StringSerializer
     producer.value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
