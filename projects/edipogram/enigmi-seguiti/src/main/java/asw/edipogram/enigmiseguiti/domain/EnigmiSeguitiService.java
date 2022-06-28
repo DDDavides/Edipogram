@@ -22,31 +22,6 @@
 		@Autowired
 		private EnigmiSeguitiRepository enigmiSeguitiRepository;
 
-		/*
-		** Metodo per ottenere gli enigmi seguiti dopo il primo gruppo di modifiche
-		 */
-		/*public Collection<Enigma> getEnigmiSeguiti(String utente) {
-			Collection<Enigma> enigmiSeguiti = new TreeSet<>();
-			logger.info("REPOSITORY method: getting connessioni by utente");
-			Collection<Connessione> connessioni = connessioneRepository.getConnessioniByUtente(utente);
-			logger.info("Connessioni utente: " + connessioni);
-			Collection<String> tipiSeguiti =
-					connessioni
-							.stream()
-							.map(c -> c.getTipo())
-							.collect(Collectors.toSet());
-			logger.info("REPOSITORY method return: \n" + tipiSeguiti);
-			if (tipiSeguiti.size()>0) {
-				logger.info("TipiSeguiti dall'utente > 0");
-				logger.info("REPOSITORY method: getting enigmi by tipi");
-				//TODO: controlla se migliorare list<String> e verifica funzionamento
-				Collection<Enigma> enigmi = enigmaRepository.getEnigmiByTipi(new ArrayList<String>(tipiSeguiti));
-				logger.info("REPOSITORY method return: \n" + enigmi);
-				enigmiSeguiti.addAll(enigmi);
-			}
-			return enigmiSeguiti;
-		}*/
-
 		/* Trova gli enigmi (in formato breve) degli utenti seguiti da utente. */
 		public Collection<EnigmiSeguiti> getEnigmiSeguiti(String utente) {
 			Collection<EnigmiSeguiti> enigmiSeguiti = new TreeSet<>();

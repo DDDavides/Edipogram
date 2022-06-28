@@ -15,15 +15,13 @@ public class EnigmiSeguitiEventHandler {
     @Autowired
     private EnigmiSeguitiService enigmiSeguitiService;
 
-    //TODO: Gestisci con polimorfismo
     public void onEvent(DomainEvent event) {
         if (event.getClass().equals(EnigmaCreatedEvent.class)) {
             onEnigmaCreatedEvent((EnigmaCreatedEvent) event);
         } else if (event.getClass().equals(ConnessioneCreatedEvent.class)) {
             onConnessioneCreatedEvent((ConnessioneCreatedEvent) event);
         } else {
-            //TODO: gestisci il caso in cui non riconosco l'evento
-            logger.info("Nessun Evento di dominio");
+            logger.warning("Nessun evento di dominio");
         }
     }
 

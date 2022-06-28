@@ -2,7 +2,7 @@
 --- 
 spring: 
   application: 
-    name: apigateway
+    name: api-gateway
   cloud:
     consul:
       host: consul

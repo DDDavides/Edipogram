@@ -9,20 +9,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class EnigmiSeguitiDomainEventListener {
-
-    /*@Value("${asw.edipogram.enigmiseguiti.channel.in-enigma-created}")
-    private String channel1;
-    @Value("${asw.edipogram.enigmiseguiti.channel.in-connessione-created}")
-    private String channel2;
-    @Value("${asw.edipogram.enigmiseguiti.groupId}")
-    private String groupId;*/
-
     @Autowired
     private EnigmiSeguitiEventHandler enigmiSeguitiEventHandler;
 
-    //TODO: gestisci eccezioni
     @KafkaListener(topics = {"${asw.edipogram.enigmiseguiti.channel.in-enigma-created}", "${asw.edipogram.enigmiseguiti.channel.in-connessione-created}"}, groupId = "${asw.edipogram.enigmiseguiti.groupId}")
-    public void listen(ConsumerRecord<String, DomainEvent> record) throws Exception{
+    public void listen(ConsumerRecord<String, DomainEvent> record) {
         enigmiSeguitiEventHandler.onEvent(record.value());
     }
 }
