@@ -88,3 +88,8 @@ Ed inoltre:
 * lo script `do-post-altre-connessioni.sh` aggiunge nuove connessioni 
 
 Inoltre, per arrestare l'intera applicazione utilizzare lo script `stop-app.sh`.
+
+Infine le tecnologie e le soluzioni scelte sono:
+* DB dei servizi con container Docker con PostgreSQL
+* Soluzione: la variante più complessa che si avvale dell'utilizzo della comunicazione asincrona tramite Kafka tra servizi eseguiti ciascuno in un container Docker differente
+* Modalità di rilascio tramite composizione di container con Docker Compose
