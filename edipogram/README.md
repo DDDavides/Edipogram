@@ -52,17 +52,11 @@ L'applicazione *Edipogram* è composta dai seguenti microservizi:
   * espone il servizio *connessioni* sul path `/connessioni` - ad esempio, `GET /connessioni/connessioni/{utente}`
   * espone il servizio *enigmi-seguiti* sul path `/enigmi-seguiti` - ad esempio, `GET /enigmi-seguiti/enigmiseguiti/{utente}`
 
-
-<!-- TODO: Aggiungere/Modificare le informazioni degli script -->
 ## Esecuzione 
 
 Per eseguire questo progetto: 
 
-<!--- * avviare *Consul* eseguendo lo script `start-consul.sh` --->
-
-* per avviare l'applicazione *Edipogram*, eseguire lo script `run-edipogram.sh` 
-
-* per avviare l'applicazione *Edipogram* con i db nei container docker, eseguire lo script `provisioning.sh` 
+* per avviare l'applicazione *Edipogram*, eseguire lo script `start-app.sh`
 
 * per inizializzare le basi di dati con dei dati di esempio, eseguire gli script `do-init-enigmi.sh` e `do-init-connessioni.sh` 
 
@@ -93,12 +87,4 @@ Ed inoltre:
 
 * lo script `do-post-altre-connessioni.sh` aggiunge nuove connessioni 
 
-Alla fine, l'applicazione può essere arrestata usando lo script `kill-java-processes.sh` (**da usare con cautela!**). 
-
-<!---Inoltre, *Consul* può essere arrestato con lo script `stop-consul.sh`. --->
 Inoltre, per arrestare l'intera applicazione utilizzare lo script `stop-app.sh`.
-
-
-## Descrizione delle attività da svolgere 
-
-Si veda la descrizione del progetto sul sito web del corso di [Architettura dei sistemi software](http://cabibbo.dia.uniroma3.it/asw/).
