@@ -73,8 +73,8 @@ services:
       - POSTGRES_DB=enigmidb
     ports:
       - "5432"
-#    volumes:
-#      - ./database/db-enigmi:/var/lib/postgresql/data
+    volumes:
+      - ../database/db-enigmi:/var/lib/postgresql/data
 
   db-connessioni:
     image:
@@ -85,8 +85,8 @@ services:
       - POSTGRES_DB=connessionidb
     ports:
       - "5432"
-#    volumes:
-#      - ./database/db-connessioni:/var/lib/postgresql/data
+    volumes:
+      - ../database/db-connessioni:/var/lib/postgresql/data
 
   db-enigmiseguiti:
     image:
@@ -97,5 +97,5 @@ services:
       - POSTGRES_DB=enigmiseguitidb
     ports:
       - "5432"
-#    volumes:
-#      - ./database/db-enigmiseguiti:/var/lib/postgresql/data
+    volumes:
+      - ../database/db-enigmiseguiti:/var/lib/postgresql/data
