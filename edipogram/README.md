@@ -56,7 +56,7 @@ L'applicazione *Edipogram* è composta dai seguenti microservizi:
 
 Per eseguire questo progetto: 
 
-* per avviare l'applicazione *Edipogram*, eseguire lo script `start-app.sh`
+* per avviare l'applicazione *Edipogram*, eseguire lo script `start-app.sh` (Nota: è stato riscontrato un [problema noto](https://forums.docker.com/t/data-directory-var-lib-postgresql-data-pgdata-has-wrong-ownership/17963/23) con Windows e per tale motivo, verranno montati, nella directory precedente, i volumi per la gestione dei dati persistenti relativi  ai db. Questo può causare problemi al primo avvio dell'applicazione se non si utilizza una macchina virtuale)
 
 * per inizializzare le basi di dati con dei dati di esempio, eseguire gli script `do-init-enigmi.sh` e `do-init-connessioni.sh` 
 
